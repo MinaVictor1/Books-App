@@ -1,4 +1,5 @@
 import 'package:bookapp/core/utils/styles.dart';
+import 'package:bookapp/feature/home/presentation/view/widgets/BookRating.dart';
 import 'package:bookapp/feature/home/presentation/view/widgets/CustomAppBarBookDetails.dart';
 import 'package:bookapp/feature/home/presentation/view/widgets/featuredlistviewitem.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class BookDetailsViewBody extends StatelessWidget {
         children: [
           const CustomAppBarBookDetails(),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: width * 0.25),
+            padding: EdgeInsets.symmetric(horizontal: width * 0.28),
             child: const FeaturedListViewItem(),
           ),
           const SizedBox(
@@ -36,6 +37,13 @@ class BookDetailsViewBody extends StatelessWidget {
                   fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
             ),
           ),
+          const SizedBox(
+            height: 16,
+          ),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [BookRating()],
+          )
         ],
       ),
     );
