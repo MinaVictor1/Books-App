@@ -9,7 +9,7 @@ class FeaturedListViewItem extends StatelessWidget {
       aspectRatio: 2.5 / 4, //the ratio between width to height
       child: Container(
         decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(24)),
+            borderRadius: BorderRadius.all(Radius.circular(16)),
             color: Colors.red,
             image: DecorationImage(
                 fit: BoxFit.fill,
