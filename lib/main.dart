@@ -13,6 +13,7 @@ class BooklyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //this from me to change status bar
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: kPrimaryColor, // Set your desired status bar color
       statusBarIconBrightness:
