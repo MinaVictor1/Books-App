@@ -3,8 +3,9 @@ import 'package:bookapp/core/utils/styles.dart';
 import 'package:bookapp/feature/home/presentation/view/widgets/BookRating.dart';
 
 import './CustomAppBarBookDetails.dart';
-import './featuredlistviewitem.dart';
 import 'package:flutter/material.dart';
+
+import 'CustomBookImage.dart';
 
 class BooksDetailsSection extends StatelessWidget {
   const BooksDetailsSection({super.key});
@@ -18,7 +19,9 @@ class BooksDetailsSection extends StatelessWidget {
         const CustomAppBarBookDetails(),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.28),
-          child: const FeaturedListViewItem(),
+          child: const CustomBookImage(
+              imageUrl:
+                  'https://images.inc.com/uploaded_files/image/1920x1080/getty_655998316_2000149920009280219_363765.jpg'),
         ),
         const SizedBox(
           height: 43,
@@ -43,7 +46,12 @@ class BooksDetailsSection extends StatelessWidget {
         ),
         const Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [BookRating()],
+          children: [
+            BookRating(
+              count: '1',
+              rating: 4,
+            )
+          ],
         ),
         const SizedBox(
           height: 37,

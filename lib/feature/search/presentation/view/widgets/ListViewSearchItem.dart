@@ -1,4 +1,3 @@
-import 'package:bookapp/feature/home/presentation/view/widgets/bestselleritem.dart';
 import 'package:flutter/material.dart';
 
 class ListViewSearchItem extends StatelessWidget {
@@ -12,7 +11,8 @@ class ListViewSearchItem extends StatelessWidget {
       itemBuilder: (context, index) {
         return const Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
-          child: CustomBestSellerItem(),
+          child: Text('wait'),
+          //child: CustomBestSellerItem(),
         );
       },
     );
