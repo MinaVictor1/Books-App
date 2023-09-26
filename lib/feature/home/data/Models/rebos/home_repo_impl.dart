@@ -15,14 +15,18 @@ class Home_Repo_Impl implements HomeRepo {
     try {
       var data = await apiServise.get(
           endPoint:
-              'volumes?Filtering=free-ebooks&q=subject:Programming&Sorting=newest');
+              'volumes?Filtering=free-ebooks&q=subject:Computer Science&Sorting=newest');
 
       //here in our API we make a model only for items
       //for that we make it
       //if we took all info API we did not make it
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+        try {
+          books.add(BookModel.fromJson(item));
+        } on Exception {
+          books.add(BookModel.fromJson(item));
+        }
       }
       return right(books);
     } catch (e) {
@@ -44,7 +48,39 @@ class Home_Repo_Impl implements HomeRepo {
       //if we took all info API we did not make it
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+        try {
+          books.add(BookModel.fromJson(item));
+        } on Exception {
+          books.add(BookModel.fromJson(item));
+        }
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFaliure.fromDioError(e));
+      }
+      return left(ServerFaliure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failures, List<BookModel>>> fetchSimiliarBooks(
+      {required String category}) async {
+    try {
+      var data = await apiServise.get(
+          endPoint:
+              'volumes?Filtering=free-ebooks&q=subject:Programming&Sorting=relevance');
+
+      //here in our API we make a model only for items
+      //for that we make it
+      //if we took all info API we did not make it
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        try {
+          books.add(BookModel.fromJson(item));
+        } on Exception {
+          books.add(BookModel.fromJson(item));
+        }
       }
       return right(books);
     } catch (e) {
